@@ -86,14 +86,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          GoogleMap(
-            onMapCreated: _onMapCreated,
-            markers: markers,
-            initialCameraPosition: CameraPosition(
-              target: _currentPosition!,
-              zoom: 16.0,
-            ),
-          ),
+          _isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  markers: markers,
+                  initialCameraPosition: CameraPosition(
+                    target: _currentPosition!,
+                    zoom: 16.0,
+                  ),
+                ),
           BlocBuilder<RoutingBloc, RoutingState>(builder: (context, state) {
             if (state is RouteChangedState) {
               return SafeArea(

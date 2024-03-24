@@ -11,10 +11,10 @@ class SuccessPage extends StatefulWidget {
 class _SuccessPageState extends State<SuccessPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
           child: SuccessScreen(),
         ),
       ),
